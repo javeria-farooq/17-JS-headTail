@@ -1,17 +1,45 @@
-// let perc = 73.9
-// document.write(Math.floor(perc))
+let heads = 0;
+let tails = 0;
+let coin = document.querySelector(".coin-container")
+let flipBtn = document.querySelector(".flip-btn")
+let resetBtn = document.querySelector(".reset-btn")
 
-// document.write(Math.random() * 10)
+flipBtn.addEventListener("click", ()=> {
+    let i = Math.floor(Math.random() * 2)
+    coin.style.animation = "none";
+    if(i) {
+        setTimeout(function(){
+            coin.style.animation = "spin-heads 3s forwards"; //1
+        }, 100);
+        heads++
+    }
 
-let player1 = prompt('Enter heads name')
-let player2 = prompt('Enter tails name')
-let toss = Math.random() * 2
-let change = Math.floor(toss)
-// document.write(change)
+    else{
+        setTimeout(function(){
+            coin.style.animation = "spin-tails 3s forwards"; //0
+        }, 100);
+        tails++
+    }
 
-if(change == 0) {
-    document.write(player1 + ' heads win')
+    setTimeout(updateStates, 3000)
+    disableButton();
+})
+
+function updateStates() {
+    document.querySelector(".heads-count").textContent = `Heads: ${heads}`;
+    document.querySelector(".tails-count").textContent = `Tails: ${tails}`;
 }
-else{
-    document.write(player2 + ' tails win')
+
+function disableButton() {
+    flipBtn.disabled = true
+    setTimeout(function(){
+        flipBtn.disabled = false
+    }, 3000)
 }
+
+resetBtn.addEventListener("click", ()=> {
+    coin.style.animation = "none";
+    heads = 0
+    tails = 0
+    updateStates()
+})

@@ -3,9 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Head tail Game</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="app.js"></script>
+
+<div class="container">
+    <div class="states">
+        <p class="heads-count">Heads: 0</p>
+        <p class="tails-count">Tails: 0</p>
+    </div>
+
+    <div class="coin-container">
+        <div class="head-coin">
+            <img src="./img/head.png" alt="">
+        </div>
+        <div class="tail-coin">
+            <img src="./img/tail.png" alt="">
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button class="flip-btn">
+            Flip Coin
+        </button>
+
+        <button class="reset-btn">
+            Reset
+        </button>
+    </div>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
